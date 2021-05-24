@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+{% block title %}Update{% endblock %}
+
+{% block content %}
+<br>
+<h1 align="center" class="skuska">Update Note</h1>
+<div align="center" class="form">
+    <form action="/update/{{note.id}}"
+          method="POST"
+          onSubmit="return confirm('Are you sure about your change?');">
+        {% csrf_token %}
+        <input type="text"
+               name="content"
+               id="content"
+               class="skuska"
+               autocomplete="off"
+               value="{{note.note}}">
+        <input type="submit" class="btn btn-primary" value="Update">
+        <a class="btn btn-primary" href="/notes" role="button">Back</a>
+    </form>
+</div>
+{% endblock %}

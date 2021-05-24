@@ -1,0 +1,38 @@
+{% extends "main/base.html" %}
+{% block title %}Face detection{% endblock %}
+
+{% block content %}
+
+<br>
+{% if boolean %}
+<center><img src="{% url 'video_feed' %}"></center>
+
+<center><label class="skuska">Face detection by OpenCV</label></center>
+<form method="POST">
+    {% csrf_token %}
+    <div align="center">
+        <button id="proceed" class="btn btn-info"><a style="color:white" href="/">< Back</a></button>
+    </div>
+</form>
+{% else %}
+<div class="container">
+  <button class="btn btn-info"><a style="color:white" href="/">< Back</a></button>
+  <div class="jumbotron">
+    <h1>Face detection</h1>
+    <h2>Powered by Python</h2>
+    <p>Rendered by HTML and JavaScript</p>
+    <p>(OpenCV)</p>
+  </div>
+  <br>
+  <center><label class="skuska">Let me show you face detection</label></center>
+  <form method="POST">
+      {% csrf_token %}
+      <br>
+      <div align="center">
+          <button type="submit" class="btn btn-primary">Start</button>
+      </div>
+  </form>
+{% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "main/base.html" %}
+{% block title %}Stocks Prediction{% endblock %}
+
+{% block content %}
+<style>
+.jumbotron {
+            background-image: url('/static/icons/stock-market.jpg');
+            background-size: cover;
+            color: white:
+   }
+</style>
+
+<br>
+<div class="container">
+    <br>
+    <button class="btn btn-info"><a style="color:white" href="/">< Back</a></button>
+    <div class="jumbotron">
+        <h1>Stocks price prediction</h1>
+        <h2>Powered by Python</h2>
+        <p>Rendered by HTML and JavaScript</p>
+        <p>(Machine learning, yahoo finance)</p>
+    </div>
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container">
+          <div class="row">
+            <div class="col">
+                <label class="skuska">How many days in Future?</label>
+            </div>
+            <div class="col">
+                <input name="days"
+                       id="days"
+                       placeholder="3"
+                       autocomplete="off"
+                       class="form-control skuska">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label class="skuska">What company?</label>
+            </div>
+            <div class="col">
+                  <input name="company"
+                   id="company"
+                   placeholder="FB"
+                   autocomplete="off"
+                   class="form-control skuska">
+                  <small id="financeHelp" class="text-muted">
+                      FB - Facebook, NET - Cloudflare, BTC-USD - Bitcoin, PFE - Pfizer, MRNA - Moderna, AZN - Astrazeneca.
+                            For more look for ticker symbols
+                  </small>
+            </div>
+          </div>
+          <br>
+          <div align="center">
+              <button type="submit" class="btn btn-primary">Start</button>
+         </div>
+	<br>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

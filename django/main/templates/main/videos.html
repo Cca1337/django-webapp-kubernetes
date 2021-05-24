@@ -1,0 +1,136 @@
+{% extends "main/base.html" %}
+{% block title %}Videos{% endblock %}
+
+{% block content %}
+
+<br />
+<center>
+<!--Carousel Wrapper-->
+<div id="video-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#video-carousel" data-slide-to="0" data-bs-interval="10000" class="active"></li>
+    <li data-target="#video-carousel" data-slide-to="1" data-bs-interval="15000"></li>
+    <li data-target="#video-carousel" data-slide-to="2" data-bs-interval="15000"></li>
+    <li data-target="#video-carousel" data-slide-to="3" data-bs-interval="5000"></li>
+    <li data-target="#video-carousel" data-slide-to="4" data-bs-interval="5000"></li>
+  </ol>
+  <!--/.Indicators-->
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+    <!-- First slide -->
+    <div class="carousel-item active">
+      <!--Mask color-->
+      <div class="view">
+        <!--Video source-->
+        <video class="video-fluid" autoplay loop muted>
+          <source src="/static/3d-prints/radnica.mp4" type="video/mp4" />
+        </video>
+        <div class="mask rgba-indigo-light"></div>
+      </div>
+
+      <!--Caption-->
+      <div class="carousel-caption">
+        <div class="animated fadeInDown">
+          <h3 class="h3-responsive" >Aerial Photogrammetry</h3>
+        </div>
+      </div>
+      <!--Caption-->
+    </div>
+    <!-- /.First slide -->
+
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <!--Video source-->
+        <video class="video-fluid" autoplay loop muted>
+          <source src="/static/3d-prints/automaticDispenser.mp4" type="video/mp4" />
+        </video>
+        <div class="mask rgba-black-strong"></div>
+      </div>
+
+      <!--Caption-->
+      <div class="carousel-caption">
+        <div class="animated fadeInDown">
+          <h3 class="h3-responsive">Automatic Hand Sanitizer</h3>
+        </div>
+      </div>
+      <!--Caption-->
+    </div>
+
+    <!-- Second slide -->
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <!--Video source-->
+        <video class="video-fluid" autoplay loop muted>
+          <source src="/static/3d-prints/20201119_181131.mp4" type="video/mp4" />
+        </video>
+        <div class="mask rgba-purple-slight"></div>
+      </div>
+
+      <!--Caption-->
+      <div class="carousel-caption">
+        <div class="animated fadeInDown">
+          <h3 class="h3-responsive">Hyperion - Ambient  lightning</h3>
+        </div>
+      </div>
+      <!--Caption-->
+    </div>
+    <!-- /.third slide -->
+
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <!--Video source-->
+        <video class="video-fluid" autoplay loop muted>
+          <source src="/static/3d-prints/20200716_140652.mp4" type="video/mp4" />
+        </video>
+        <div class="mask rgba-black-strong"></div>
+      </div>
+
+      <!--Caption-->
+      <div class="carousel-caption">
+        <div class="animated fadeInDown">
+          <h3 style="color:black" class="h3-responsive">Flexible material</h3>
+        </div>
+      </div>
+      <!--Caption-->
+    </div>
+    <!-- /.Fourth slide -->
+
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <!--Video source-->
+        <video class="video-fluid" autoplay loop muted>
+          <source src="/static/3d-prints/20201022_182455.mp4" type="video/mp4" />
+        </video>
+        <div class="mask rgba-purple-slight"></div>
+      </div>
+
+      <!--Caption-->
+      <div class="carousel-caption">
+        <div class="animated fadeInDown">
+          <h3 class="h3-responsive">Stipec na pradlo</h3>
+        </div>
+      </div>
+      <!--Caption-->
+    </div>
+
+  </div>
+  <!--/.Slides-->
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#video-carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#video-carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
+</div>
+<!--Carousel Wrapper-->
+</center>
+{% endblock %}

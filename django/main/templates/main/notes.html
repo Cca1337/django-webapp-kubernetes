@@ -1,0 +1,36 @@
+{% extends "main/base.html" %}
+{% block title %}Notes{% endblock %}
+
+{% block content %}
+<br>
+<h2 align="center" class="skuska">Notes</h2>
+<ul class="list-group list-group-flush " id="notes">
+
+    {% for note in userNotes %}
+    <li class="list-group-item">
+       <span class="skuska zhora">{{ note.note }}</span>
+       <div class="justify-content-end moj" style=float:right;>
+            <span class="badge">{{ note.date }}</span>
+            <a class="btn btn-primary" href="/update/{{ note.id }}" role="button">Edit</a>&ensp;
+            <button type="button" class="btn btn-primary" onClick="deleteNote({{ note.id }})">
+               <span aria-hidden="true">&times;</span>
+            </button>
+       </div>
+    </li>
+    {% endfor %}
+
+</ul>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="note"
+              id="note"
+              placeholder="Enter you note"
+              class="form-control skuska"></textarea>
+    <br>
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Add Note</button>
+    </div>
+</form>
+<br />
+{% endblock %}

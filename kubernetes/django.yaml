@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: django
+spec:
+  type: ClusterIP
+  selector:
+    component: django
+  ports:
+    - port: 8000
+      targetPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name : django
+  labels:
+    app: django
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: django  
+  template:
+    metadata:
+      labels:
+        component: django
+    spec:
+      containers:
+        - name: app-django-gunicorn
+          image: cecilka1337/django-kubernetes:app-django-gunicorn
+          command: ["/bin/bash" ,"run.sh"]
+          imagePullPolicy: "Always" 
+          ports:
+            - containerPort: 8000
+          env:
+          - name: POSTGRES_HOST
+            value: postgres
+          - name: POSTGRES_PORT
+            value: "5432"
+          - name: POSTGRES_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: dbname
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: username
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: password
+          envFrom:
+          - secretRef:
+              name: app-secrets
+          volumeMounts:
+          - name: static-persistent-storage
+            mountPath: /usr/src/app/static      
+      volumes:
+      - name: static-persistent-storage
+        persistentVolumeClaim:
+          claimName: static-pv-claim 

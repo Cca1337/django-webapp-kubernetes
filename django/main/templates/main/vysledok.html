@@ -1,0 +1,35 @@
+{% extends "main/base.html" %}
+{% block title %}Stocks Prediction{% endblock %}
+
+{% block content %}
+<br>
+    {% if company == "FB" %}
+    <h1 align="center">You asked for prediction for [{{days}}] (day/s) for Facebook.</h1>
+    {% elif company == "NET" %}
+    <h1 align="center">You asked for prediction for [{{days}}] (day/s) for Cloudflare.</h1>
+    {% elif company == "BTC-USD" %}
+    <h1 align="center">You asked for prediction for [{{days}}] (day/s) for Bitcoin.</h1>
+    {% elif company == "PFE" %}
+    <h1 align="center">You asked for prediction for [{{days}}] (day/s) for Pfizer.</h1>
+    {% elif company == "MRNA" %}
+    <h1 align="center">You asked for prediction for [{{days}}] (day/s) for Moderna.</h1>
+    {% elif company == "AZN" %}
+    <h1 align="center">You asked for prediction for [{{days}}] (day/s) for Astrazeneca.</h1>
+    {% elif company == "MRNA" %}
+    <h1 align="center">You asked for prediction for [{{days}}] (day/s) for Moderna.</h1>
+    {% else %}
+    <h1 align="center">You asked for prediction for [{{days}}] (day/s) for [{{company}}].</h1>
+    {% endif %}
+    <h2 align="center">Predicted price will be {{prediction}}</h2>
+    <h3 align="center">Last known value is {{last_value}}</h3>
+    <div align="center" class="container">
+{% load static %}<img src="/static/graphs/{{company}}_{{days}}_prediction.png"  alt="Graph" />
+    <br>
+    <br>
+      <div align="center">
+          <button class="btn btn-info"><a style="color:white" href="/stocks_prediction">< Back</a></button>
+      </div>
+    </div>
+    <br>
+
+{% endblock %}

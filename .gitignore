@@ -1,0 +1,11 @@
+__pycache__
+env
+*.db
+*.log
+*.avi
+3d-prints/
+sony-drone/
+.env
+.env.prod
+.env.prod.db
+secret.yaml

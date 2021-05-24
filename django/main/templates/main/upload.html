@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}
+{% block title %}Upload{% endblock %}
+
+{% block content %}
+<br>
+<button class="btn btn-primary"><a style="color:white" href="/"> Back</a></button>
+<button class="btn btn-primary"><a style="color:white" href="/obrazky_update"> DB</a></button>
+
+<h1 align="center" class="skuska">Upload image or file to Database</h1>
+<hr>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- File Upload-->
+    <div class="form-group">
+        <label for="inputFile">File input</label>
+        <input class="form-control-file" id="inputFile" type="file" name="inputFile">
+        <hr>
+        <small align="center" class="text-muted">Allowed file extensions are '.txt', '.pdf', '.png', '.jpeg', '.gif'</small>
+    </div>
+    <!-- Text -->
+    <div class="form-group">
+        <label for="text">Write Text</label>
+        <textarea class="form-control" name="text" id="text" rows="5" placeholder="Add a Description"></textarea>
+    </div>
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+
+{% endblock %}

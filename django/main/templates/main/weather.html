@@ -1,0 +1,38 @@
+{% extends "main/base.html" %}
+{% block title %}Weather{% endblock %}
+
+{% block content %}
+<style>
+.jumbotron {
+            background-image: url('/static/icons/weather-icon.png');
+            background-size: cover;
+            color: white:
+   }
+</style>
+
+  <br>
+  <div class="container">
+    <button class="btn btn-info"><a style="color:white" href="/">< Back</a></button>
+    <div class="jumbotron">
+      <h1>Weather Forecast</h1>
+      <h2>Powered by Python</h2>
+      <p>Rendered by HTML and JavaScript</p>
+      <p>(Openweathermap.org API)</p>
+    </div>
+    <br>
+    <label class="skuska">Enter your city here</label>
+    <form method="POST">
+        {% csrf_token %}
+        <input name="mesto"
+               id="mesto"
+               placeholder="Mesto"
+               autocomplete="off"
+               class="form-control skuska">
+        <div align="center">
+            <button type="submit" class="btn btn-primary">Search!</button>
+        </div>
+   	<br>
+    </form>
+  </div>
+
+{% endblock %}

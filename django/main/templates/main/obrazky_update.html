@@ -1,0 +1,51 @@
+{% extends "main/base.html" %}
+{% block title %}Obrazky{% endblock %}
+<style>
+.davaj {
+    style=float:right;
+}
+</style>
+{% block content %}
+
+<br>
+<button class="btn btn-primary"><a style="color:white" href="/upload"> Back</a></button>
+<br>
+<h2 align="center" class="skuska">Uploads</h2>
+<hr>
+<ul class="list-group list-group-flush " id="pictures">
+
+    {% if userpictures %}
+    {% for obrazok in userpictures %}
+    <li class="list-group-item">
+        <div class="row moj">
+             <div class="col-sm">
+                       <img src="{{obrazok.file.url }}" style="width: 64px">
+             </div>
+             <div class="col-sm">
+                <small class="text-muted">{{ obrazok.name }}</small>
+             </div>
+             <div class="col-sm">
+                 <small class="text-muted">{{ obrazok.description }}</small>
+             </div>
+
+             <div class="col-sm">
+                <div class="justify-content-end" style=float:right;>
+                    <button type="button" class="btn btn-primary" onClick="deletePic({{ obrazok.id }})">
+                       <span aria-hidden="true">&times;</span>
+                    </button>
+                   <a href="/return-files/{{obrazok.name}}" target="blank"><button class='btn btn-primary' >Download</button></a>
+                </div>
+            </div>
+        </div>
+    </li>
+
+    {% endfor %}
+    {% else %}
+          <div class="col-sm">
+            <center><h4>Database Empty</h4></center>
+         </div>
+
+</ul>
+    {% endif %}
+
+{% endblock %}
